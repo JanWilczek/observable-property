@@ -1,3 +1,10 @@
+// Copyright (c) 2024
+// Jan Wilczek
+//
+// Distributed under the Boost Software License, Version 1.0. (See
+// accompanying file LICENSE.md or copy at
+// http://www.boost.org/LICENSE_1_0.txt)
+
 #include <gtest/gtest.h>
 #include <observable_property/ObservableProperty.hpp>
 

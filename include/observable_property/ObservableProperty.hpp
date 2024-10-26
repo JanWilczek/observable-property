@@ -1,3 +1,10 @@
+// Copyright (c) 2024
+// Jan Wilczek
+//
+// Distributed under the Boost Software License, Version 1.0. (See
+// accompanying file LICENSE.md or copy at
+// http://www.boost.org/LICENSE_1_0.txt)
+
 #pragma once
 #include <observable_property/detail/boost/signals2.hpp>
 
@@ -90,11 +97,11 @@ public:
  */
 #define OBSERVABLE_PROPERTY_IMPL(propertyName, Type, ObservablePropertyType) \
 public:                                                                      \
-  [[nodiscard]] ws::ObservableProperty<Type>& propertyName() noexcept {    \
+  [[nodiscard]] ws::ObservableProperty<Type>& propertyName() noexcept {      \
     return propertyName##_;                                                  \
   }                                                                          \
                                                                              \
-  [[nodiscard]] const ws::ObservableProperty<Type>& propertyName()         \
+  [[nodiscard]] const ws::ObservableProperty<Type>& propertyName()           \
       const noexcept {                                                       \
     return propertyName##_;                                                  \
   }                                                                          \
