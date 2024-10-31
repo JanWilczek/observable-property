@@ -1,7 +1,7 @@
 project(ObservablePropertyTests)
 enable_testing()
 
-set(LIB_DIR ../libs)
+set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../libs)
 include(../cmake/cpm.cmake)
 
 cpmaddpackage(
@@ -50,7 +50,9 @@ target_link_libraries_system(
   juce::juce_events
 )
 
-target_compile_definitions(ObservablePropertyTests PUBLIC JUCE_MODAL_LOOPS_PERMITTED=1)
+target_compile_definitions(
+  ObservablePropertyTests PUBLIC JUCE_MODAL_LOOPS_PERMITTED=1 JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0
+)
 
 include(GoogleTest)
 gtest_discover_tests(ObservablePropertyTests)
