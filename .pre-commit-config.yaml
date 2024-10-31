@@ -11,4 +11,8 @@ repos:
       additional_dependencies: [pyyaml>=5.1]
     - id: cmake-lint
       additional_dependencies: [pyyaml>=5.1]
+-   repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+    - id: black
 
