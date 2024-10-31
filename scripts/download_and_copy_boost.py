@@ -104,6 +104,9 @@ def copy_boost_modules():
     copy_boost_header("integer_fwd.hpp")
     copy_boost_header("limits.hpp")
     copy_boost_module("mp11")
+    
+    # Windows
+    copy_boost_module("preprocessor")
 
 def cleanup():
     print("Cleaning up...")
