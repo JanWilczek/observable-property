@@ -11,10 +11,12 @@ TARGET_DIR = "include/observable_property/detail/boost"
 BOOST_ARCHIVE = "boost_1_86_0.tar.gz"
 BOOST_SRC_DIR = "boost_1_86_0"
 
+
 def download_boost():
     print(f"Downloading Boost from {BOOST_URL}...")
     urllib.request.urlretrieve(BOOST_URL, BOOST_ARCHIVE)
     print("Download complete.")
+
 
 def verify_sha256(filename, expected_sha256):
     print("Verifying SHA256 checksum...")
@@ -27,11 +29,13 @@ def verify_sha256(filename, expected_sha256):
         raise ValueError("SHA256 checksum does not match. File may be corrupted.")
     print("SHA256 checksum verified.")
 
+
 def extract_boost():
     print("Extracting Boost archive...")
     with tarfile.open(BOOST_ARCHIVE, "r:gz") as tar:
         tar.extractall()
     print("Extraction complete.")
+
 
 def copy_boost_module(module_name: str):
     source_path = os.path.join(BOOST_SRC_DIR, "boost", module_name)
@@ -41,10 +45,20 @@ def copy_boost_module(module_name: str):
         os.makedirs(target_path)
     shutil.copytree(source_path, target_path, dirs_exist_ok=True)
 
-    if module_name not in ["core", "mpl", "predef", "tuple", "exception", "detail", "move", "container_hash"]:
+    if module_name not in [
+        "core",
+        "mpl",
+        "predef",
+        "tuple",
+        "exception",
+        "detail",
+        "move",
+        "container_hash",
+    ]:
         copy_boost_header(f"{module_name}.hpp")
 
     print("Copy complete.")
+
 
 def copy_boost_header(header_name: str):
     source_path = os.path.join(BOOST_SRC_DIR, "boost", header_name)
@@ -54,6 +68,7 @@ def copy_boost_header(header_name: str):
         os.makedirs(target_path)
     shutil.copy(source_path, target_path)
     print("Copy complete.")
+
 
 def copy_boost_modules():
     copy_boost_module("signals2")
@@ -104,15 +119,17 @@ def copy_boost_modules():
     copy_boost_header("integer_fwd.hpp")
     copy_boost_header("limits.hpp")
     copy_boost_module("mp11")
-    
+
     # Windows
     copy_boost_module("preprocessor")
+
 
 def cleanup():
     print("Cleaning up...")
     os.remove(BOOST_ARCHIVE)
     shutil.rmtree(BOOST_SRC_DIR)
     print("Cleanup complete.")
+
 
 if __name__ == "__main__":
     try:
@@ -124,4 +141,3 @@ if __name__ == "__main__":
         print("Boost library download and setup completed successfully.")
     except Exception as e:
         print(f"Error: {e}")
-
