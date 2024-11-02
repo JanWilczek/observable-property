@@ -7,9 +7,9 @@
 
 #include <gtest/gtest.h>
 #include <juce_events/juce_events.h>
-#include <future>
 #include <observable_property/juce/LiveObservableProperty.hpp>
 #include <thread>
+#include <future>
 
 namespace ws::juce {
 TEST(LiveObservableProperty, CallsObserversOnMessageThread) {
