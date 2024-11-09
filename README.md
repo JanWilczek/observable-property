@@ -23,6 +23,8 @@ The library uses `boost-signals2` internally (bundled with this repo).
 A minimal example:
 
 ```cpp
+#include <observable_property/ObservableProperty.hpp>
+
 class Holder {
 public:
   [[nodiscard]] ObservableProperty<int>& property() noexcept {
@@ -49,6 +51,8 @@ holder.incrementValue();
 You can use `OBSERVABLE_PROPERTY` macro to avoid boilerplate:
 
 ```cpp
+#include <observable_property/ObservableProperty.hpp>
+
 class Holder {
 public:
   Holder() : property_{0} {}
