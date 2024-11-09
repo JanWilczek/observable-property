@@ -9,7 +9,7 @@
 #include <juce_events/juce_events.h>
 #include <functional>
 
-namespace ws::juce {
+namespace wolfsound::juce {
 /**
  * @brief Calls callback \p f on the message (main, GUI) thread if such is
  * available.
@@ -29,4 +29,4 @@ inline void callOnMessageThreadIfNotNull(std::function<void()> f) {
     f();
   }
 }
-}  // namespace ws::juce
+}  // namespace wolfsound::juce

@@ -11,7 +11,7 @@ add_library(observable_property INTERFACE)
 target_include_directories(observable_property INTERFACE include)
 target_include_directories(observable_property SYSTEM INTERFACE include/observable_property/detail)
 
-add_library(ws::observable_property ALIAS observable_property)
+add_library(wolfsound::observable_property ALIAS observable_property)
 
 option(BUILD_TESTS "If set to ON, JUCE and GoogleTest will be downloaded to configure the test project" OFF)
 if(BUILD_TESTS)

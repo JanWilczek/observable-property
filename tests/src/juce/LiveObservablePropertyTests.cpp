@@ -11,7 +11,7 @@
 #include <thread>
 #include <future>
 
-namespace ws::juce {
+namespace wolfsound::juce {
 TEST(LiveObservableProperty, CallsObserversOnMessageThread) {
   LiveObservableProperty<int> property;
 
@@ -52,4 +52,4 @@ TEST(LiveObservableProperty, SetsValueOnCurrentThread) {
   // assert that the callback was called on the MessageManager (GUI) thread
   ASSERT_EQ(std::this_thread::get_id(), callbackThreadId.value());
 }
-}  // namespace ws::juce
+}  // namespace wolfsound::juce

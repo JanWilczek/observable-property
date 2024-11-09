@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <observable_property/ObservableProperty.hpp>
 
-namespace ws {
+namespace wolfsound {
 TEST(ObservableProperty, CanBePublicMember) {
   class Holder {
   public:
@@ -63,4 +63,4 @@ TEST(ObservableProperty, PublicMemberMacro) {
 
   ASSERT_TRUE(called);
 }
-}  // namespace ws
+}  // namespace wolfsound

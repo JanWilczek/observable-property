@@ -8,7 +8,7 @@
 #pragma once
 #include <observable_property/detail/boost/signals2.hpp>
 
-namespace ws {
+namespace wolfsound {
 using ScopedConnection = boost::signals2::scoped_connection;
 
 /**
@@ -95,22 +95,23 @@ public:
  * declaration. Requires the property to be initialized in the class
  * constructor.
  */
-#define OBSERVABLE_PROPERTY_IMPL(propertyName, Type, ObservablePropertyType) \
-public:                                                                      \
-  [[nodiscard]] ws::ObservableProperty<Type>& propertyName() noexcept {      \
-    return propertyName##_;                                                  \
-  }                                                                          \
-                                                                             \
-  [[nodiscard]] const ws::ObservableProperty<Type>& propertyName()           \
-      const noexcept {                                                       \
-    return propertyName##_;                                                  \
-  }                                                                          \
-                                                                             \
-private:                                                                     \
-  ObservablePropertyType<Type> propertyName##_;                              \
-                                                                             \
+#define OBSERVABLE_PROPERTY_IMPL(propertyName, Type, ObservablePropertyType)   \
+public:                                                                        \
+  [[nodiscard]] wolfsound::ObservableProperty<Type>& propertyName() noexcept { \
+    return propertyName##_;                                                    \
+  }                                                                            \
+                                                                               \
+  [[nodiscard]] const wolfsound::ObservableProperty<Type>& propertyName()      \
+      const noexcept {                                                         \
+    return propertyName##_;                                                    \
+  }                                                                            \
+                                                                               \
+private:                                                                       \
+  ObservablePropertyType<Type> propertyName##_;                                \
+                                                                               \
 public:
 
 #define OBSERVABLE_PROPERTY(propertyName, Type) \
-  OBSERVABLE_PROPERTY_IMPL(propertyName, Type, ws::MutableObservableProperty)
-}  // namespace ws
+  OBSERVABLE_PROPERTY_IMPL(propertyName, Type,  \
+                           wolfsound::MutableObservableProperty)
+}  // namespace wolfsound

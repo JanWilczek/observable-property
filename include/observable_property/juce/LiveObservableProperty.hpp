@@ -10,7 +10,7 @@
 #include <observable_property/ObservableProperty.hpp>
 #include <observable_property/juce/callOnMessageThreadIfNotNull.hpp>
 
-namespace ws::juce {
+namespace wolfsound::juce {
 /**
  * @class LiveObservableProperty
  * @brief An ObservableProperty that is suitable for GUI interaction.
@@ -42,5 +42,6 @@ public:
 };
 
 #define LIVE_OBSERVABLE_PROPERTY(propertyName, Type) \
-  OBSERVABLE_PROPERTY_IMPL(propertyName, Type, ws::juce::LiveObservableProperty)
-}  // namespace ws::juce
+  OBSERVABLE_PROPERTY_IMPL(propertyName, Type,       \
+                           wolfsound::juce::LiveObservableProperty)
+}  // namespace wolfsound::juce

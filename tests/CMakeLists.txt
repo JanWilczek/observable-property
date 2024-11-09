@@ -42,7 +42,7 @@ add_executable(ObservablePropertyTests ${SOURCES})
 
 set_source_files_properties(${SOURCES} PROPERTIES COMPILE_OPTIONS "${PROJECT_WARNINGS_CXX}")
 
-target_link_libraries(ObservablePropertyTests PRIVATE ws::observable_property)
+target_link_libraries(ObservablePropertyTests PRIVATE wolfsound::observable_property)
 target_link_libraries_system(
   ObservablePropertyTests
   PRIVATE
