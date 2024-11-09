@@ -39,6 +39,12 @@ public:
 protected:
   explicit ObservableProperty(const T& initialValue) : value_{initialValue} {}
 
+  void setValueAndNotify(const T& newValue) {
+    value_ = newValue;
+    onChanged_(this->value_);
+  }
+
+private:
   T value_;
   SignalType onChanged_;
 };
@@ -68,7 +74,7 @@ public:
    * @param newValue
    */
   void setValue(const T& newValue) {
-    if (newValue != this->value_) {
+    if (newValue != this->value()) {
       setValueForced(newValue);
     }
   }
@@ -84,10 +90,7 @@ public:
    *
    * @param newValue
    */
-  void setValueForced(const T& newValue) {
-    this->value_ = newValue;
-    this->onChanged_(this->value_);
-  }
+  void setValueForced(const T& newValue) { this->setValueAndNotify(newValue); }
 };
 
 /**
